@@ -1,0 +1,27 @@
+# Eclipse IDE
+.classpath
+.project
+.settings
+.link_to_grails_plugins
+
+# IntelliJ
+.idea
+*.iml
+
+# Build output
+.gradle
+build
+classes
+bin
+out
+target
+*.zip
+*.sha1
+*.ser
+plugin.xml
+
+# OS files
+.DS_Store
+.DS_Store?
+
+.slcache
