@@ -2,12 +2,14 @@ package support.util
 
 import groovy.transform.CompileStatic
 import org.joda.time.DateTimeZone
+import org.joda.time.Days
 import org.joda.time.Interval
 import org.joda.time.LocalDate
 
 @CompileStatic
 class DateUtil {
 
+    @Deprecated
     static Integer getNumberOfDays(LocalDate date1, LocalDate date2) {
         Integer days = null
         if (date1 && date2) {
@@ -21,6 +23,10 @@ class DateUtil {
         }
 
         return days
+    }
+
+    static Integer getLogicalNumberOfDays(LocalDate date1, LocalDate date2) {
+        return Days.daysBetween(date1, date2).getDays()
     }
 
     /**

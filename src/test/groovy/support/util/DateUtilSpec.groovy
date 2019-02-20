@@ -7,9 +7,33 @@ import spock.lang.Unroll
 @Unroll
 class DateUtilSpec extends Specification {
 
+    @Deprecated
     void 'get number of days - date1: #date1, date2: #date2, expected: 45 days'() {
         when:
             Integer days = DateUtil.getNumberOfDays(date1, date2)
+
+        then:
+            days == 45
+
+        where:
+            dateStr << [
+                    '2019-02-11',
+                    '2019-02-12',
+                    '2019-02-13',
+                    '2019-02-14',
+                    '2019-02-15',
+                    '2019-02-16',
+                    '2019-02-17',
+                    '2019-02-18'
+            ]
+
+            date1 = LocalDate.parse(dateStr)
+            date2 = date1.plusDays(45)
+    }
+
+    void 'get logical number of days - date1: #date1, date2: #date2, expected: 45 days'() {
+        when:
+            Integer days = DateUtil.getLogicalNumberOfDays(date1, date2)
 
         then:
             days == 45
